@@ -1,0 +1,64 @@
+$light-base: #9e9bea;
+$dark-base: #6C63FF;
+$white: #fff;
+$light-black: #333;
+$gray: #444;
+$silver:#f0f0f0;
+$light-gray: #acacac;
+$smooth: all 1.3s ease-in-out;
+.cardbox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    .card {
+        position: relative;
+        background-color: $white;
+        padding: 30px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+        .numbers {
+            position: relative;
+            font-weight: 500;
+            font-size: 2.5rem;
+            color: $dark-base;
+        }
+        .cardName {
+            color: $gray;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        .iconBx {
+            font-size: 2.5em;
+            color: $gray;
+        }
+        &:hover {
+            background-color: $dark-base;
+            .numbers {
+                color: $white;
+            }
+            .cardName {
+                color: $white;
+            }
+            .iconBx {
+                color: $white;
+            }
+        }
+    }
+}
+@media (max-width: 991px) { 
+    .cardbox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) { 
+    .cardbox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

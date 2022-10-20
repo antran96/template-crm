@@ -1,6 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+$light-base: #9e9bea;
+$dark-base: #6C63FF;
+$white: #fff;
+$light-black: #333;
+$gray: #444;
+$silver:#f0f0f0;
+$light-gray: #acacac;
+$smooth: all 1.3s ease-in-out;
 body, input {
     margin: 0;
     padding: 0;
     font-family: 'Poppiins', sans-serif;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.btn {
+    position: relative;
+    padding: 10px 15px;
+    background-color: $dark-base;
+    border: none;
+    color: $white;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover {
+        background-color: $light-base;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

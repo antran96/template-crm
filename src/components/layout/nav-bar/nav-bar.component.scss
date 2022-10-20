@@ -1,0 +1,76 @@
+$light-base: #9e9bea;
+$dark-base: #6C63FF;
+$white: #fff;
+$light-black: #333;
+$gray: #444;
+$silver:#f0f0f0;
+$light-gray: #acacac;
+$smooth: all 1.3s ease-in-out;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 100%;
+    .toggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+    .search {
+        position: relative;
+        width: 400px;
+        margin: 0 10px;
+        label {
+            position: relative;
+            width: 100%;
+        }
+        input {
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            padding: 5px 20px;
+            padding-left: 35px;
+            font-size: 18px;
+            outline: none;
+            border: 1px solid $gray;
+        }
+        i {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            font-size: 1.2em;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            font-size: 1.2em;
+        }
+    }
+    .user {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        img {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+    @media (max-width: 480px) {
+        .toggle {
+            z-index: 1001;
+        }
+    }
+}

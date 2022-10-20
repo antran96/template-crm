@@ -87,6 +87,13 @@ $smooth: all 1.3s ease-in-out;
             color: $light-gray;
             font-size: 1.1rem;
         }
+        svg {
+            text-align: center;
+            line-height: 55px;
+            color: $light-gray;
+            font-size: 1.1rem;
+            margin: 18px;
+        }
         input {
             background: none;
             outline: none;

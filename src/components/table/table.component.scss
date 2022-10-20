@@ -1,0 +1,79 @@
+$light-base: #9e9bea;
+$dark-base: #6C63FF;
+$white: #fff;
+$light-black: #333;
+$gray: #444;
+$silver:#f0f0f0;
+$light-gray: #acacac;
+$sttNew: #ffc296;
+$sttProcessing: #bbe888;
+$sttReversing: #f493b8;
+.table {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        thead {
+            font-weight: 600;
+        }
+        tr {
+            color: $light-black;
+            border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+            &:last-child {
+                border-bottom: none;
+            }
+            td {
+                padding: 15px;
+                text-align: center;
+                font-size: 12px;
+                &:last-child {
+                    text-align: end;
+                }
+                &:nth-child(1) {
+                    text-align: start;
+                }
+            }
+        }
+        tbody {
+            tr {
+                &:hover {
+                    background-color: $dark-base;
+                    color: $white;
+                }
+            }
+            .status {
+                padding: 2px 4px;
+                color: $white;
+                border-radius: 4px;
+                font-size: 14px;
+                font-weight: 500;
+                &.processing {
+                    background-color: $sttProcessing;
+                }
+                &.new {
+                    background-color: $sttNew;
+                }
+                &.reversing {
+                    background-color: $sttReversing;
+                }
+                &.cancel {
+                    background-color: $light-base;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .table {
+        table {
+            tbody {
+                .status {
+                    &.processing {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+
+}

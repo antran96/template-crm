@@ -1,1 +1,14 @@
-<p>user works!</p>
+<div class="user-container">
+    <div class="user-dialog">
+        <app-dialog [show]="showDialog" (close)="onClose()"></app-dialog>
+    </div>
+    <div class="user-main">
+        <div class="user-btn" (click)="addUsers()">
+            <button class="btn"><i class="fa-solid fa-plus"></i>Add users</button>
+        </div>
+        <div class="user-list">
+            <app-table></app-table>
+        </div>
+    </div>
+</div>
+
