@@ -18,6 +18,7 @@ import { PieChartComponent } from '../modules/dashboard/pie-chart/pie-chart.comp
 import { TableComponent } from '../components/table/table.component';
 import { DialogComponent } from '../components/dialog/dialog.component';
 import { RecentUsersComponent } from '../modules/dashboard/recent-users/recent-users.component';
+import { DialogUserComponent } from '../modules/user/dialog-user/dialog-user.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { RecentUsersComponent } from '../modules/dashboard/recent-users/recent-u
     TableComponent,
     DialogComponent,
     RecentUsersComponent,
+    DialogUserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 <div class="user-container">
     <div class="user-dialog">
-        <app-dialog [show]="showDialog" (close)="onClose()"></app-dialog>
+        <app-dialog-user [show]="showDialog" (close)="onClose()"></app-dialog-user>
+        <!-- <app-dialog [show]="showDialog" (close)="onClose()"></app-dialog> -->
     </div>
     <div class="user-main">
         <div class="user-btn" (click)="addUsers()">

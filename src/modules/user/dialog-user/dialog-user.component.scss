@@ -1,0 +1,65 @@
+$light-base: #6c63ff66;
+$dark-base: #6C63FF;
+$white: #fff;
+$light-black: #333;
+$gray: #444;
+$silver:#f0f0f0;
+$light-gray: #acacac;
+$titleSize: 20px;
+$smooth: all 0.3s ease-in-out;
+.dialogUser {
+    &-container {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.3);
+        .content {
+            position: relative;
+            width: 900px;
+            height: calc(650px - 60px);
+            margin: auto;
+            padding: 20px;
+            border-radius: 0px 0px 10px 10px;
+            top: 13.1%;
+            background-color: $white;
+            overflow: auto;
+            form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                margin: 20px;
+                .input-dialog {
+                    max-width: none;
+                    grid-template-columns: 8% 92%;
+                }
+            }
+        }
+        @media (max-width: 991px) {
+            .content {
+                width: 450px;
+                top: 11.8%;
+                form {
+                    .input-dialog {
+                        grid-template-columns: 15% 85%;
+                    }
+                }
+            }
+        }
+        @media (max-width: 480px) {
+            .content {
+                width: 350px;
+                top: 13.2%;
+                form {
+                    .input-dialog {
+                        grid-template-columns: 20% 80%;
+                    }
+                }
+            }
+        }
+    }
+}
