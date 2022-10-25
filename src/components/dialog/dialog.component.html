@@ -12,6 +12,51 @@
             </div>
         </div>
         <div class="dialog-content">
+            <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+                <div [ngClass]="formData.controls.username.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="user-icon-signup" class="fas fa-user"></i>
+                    <input id="username" type="text" formControlName="username" required="required">
+                    <label for="username">User Name</label>
+                </div>
+                <div [ngClass]="formData.controls.password.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="password-icon" class="fa-solid fa-lock"></i>
+                    <input id="password" type="text" formControlName="password" required="required">
+                    <label for="password">Password</label>
+                </div>
+                <div [ngClass]="formData.controls.fullname.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="user-plus-icon" class="fa-solid fa-user-plus"></i>
+                    <input id="fullname" type="text" formControlName="fullname" required="required">
+                    <label for="fullname">Full Name</label>
+                </div>
+                <div [ngClass]="formData.controls.email.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="envelope-icon" class="fa-solid fa-envelope"></i>
+                    <input id="email" type="text" formControlName="email" required="required">
+                    <label for="email">Email</label>
+                </div>
+                <div [ngClass]="formData.controls.identify.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="id-card-icon" class="fa-solid fa-id-card"></i>
+                    <input id="identify" type="text" formControlName="identify" required="required">
+                    <label for="identify">Identify</label>
+                </div>
+                <div [ngClass]="formData.controls.phone.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="phone-icon" class="fa-solid fa-phone"></i>
+                    <input id="phone" type="text" formControlName="phone" required="required">
+                    <label for="phone">Phone</label>
+                </div>
+                <div [ngClass]="formData.controls.role.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="briefcase-icon" class="fa-solid fa-briefcase"></i>
+                    <input id="role" type="text" formControlName="role" required="required">
+                    <label for="role">Role</label>
+                </div>
+                <div [ngClass]="formData.controls.branch.valid === true ? 'input-field valid input-dialog' : 'input-field input-dialog'">
+                    <i id="location-pin-icon" class="fa-solid fa-location-pin"></i>
+                    <input id="branch" type="text" formControlName="branch" required="required">
+                    <label for="branch">Branch</label>
+                </div>
+                <div class="submitBtn">
+                    <button class="btn" type="submit" [disabled]="!formData.valid">Create User</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

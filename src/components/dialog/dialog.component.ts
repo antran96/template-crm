@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-dialog',
@@ -7,10 +8,22 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
+  public formData = this.formBuilder.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    fullname: ['', Validators.required],
+    email: ['', Validators.required],
+    identify: ['', Validators.required],
+    phone: ['', Validators.required],
+    role: ['', Validators.required],
+    branch: ['', Validators.required]
+  })
+
   @Input() show: boolean = false
   @Output() close: EventEmitter<any> = new EventEmitter()
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit(): void {
   }
@@ -20,11 +33,11 @@ export class DialogComponent implements OnInit {
     this.close.emit(this.show)
   }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  public onSubmit(): void {
+    console.log('submit form:', this.formData.value)
+  }
+  
+  onFocus(event: any): void {
+    event.focus()
   }
 }

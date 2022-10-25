@@ -1,4 +1,4 @@
-$light-base: #9e9bea;
+$light-base: #6c63ff66;
 $dark-base: #6C63FF;
 $white: #fff;
 $light-black: #333;
@@ -6,7 +6,7 @@ $gray: #444;
 $silver:#f0f0f0;
 $light-gray: #acacac;
 $titleSize: 20px;
-$smooth: all 1.3s ease-in-out;
+$smooth: all 0.3s ease-in-out;
 .dialog {
     width: 100vw;
     height: 100vh;
@@ -20,9 +20,10 @@ $smooth: all 1.3s ease-in-out;
         position: relative;
         margin: auto;
         width: 900px;
-        height: 700px;
+        height: 650px;
         background-color: $gray;
         border-radius: 15px;
+        top: 2%;
         .top-container {
             position: relative;
             background-color: $dark-base;
@@ -68,10 +69,47 @@ $smooth: all 1.3s ease-in-out;
         position: absolute;
         border-radius: 0px 0px 10px 10px;
         background: white;
+        padding: 20px;
+        overflow: auto;
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px;
+            .input-dialog {
+                max-width: none;
+                grid-template-columns: 8% 92%;
+            }
+        }
     }
-    :host {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
+}
+
+@media (max-width: 991px) {
+    .dialog {
+        &-container {
+            width: 450px;
+            top: 3%;
+            form {
+                .input-dialog {
+                    grid-template-columns: 15% 85%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .dialog {
+        &-container {
+            top: 5%;
+            width: 350px;
+            form {
+                .input-dialog {
+                    grid-template-columns: 20% 80%;
+                }
+            }
+        }
+    }
 }
