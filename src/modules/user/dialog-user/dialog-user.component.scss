@@ -23,7 +23,7 @@ $smooth: all 0.3s ease-in-out;
             margin: auto;
             padding: 20px;
             border-radius: 0px 0px 10px 10px;
-            top: 13.1%;
+            top: 14%;
             background-color: $white;
             overflow: auto;
             form {
@@ -42,7 +42,7 @@ $smooth: all 0.3s ease-in-out;
         @media (max-width: 991px) {
             .content {
                 width: 450px;
-                top: 11.8%;
+                top: 13%;
                 form {
                     .input-dialog {
                         grid-template-columns: 15% 85%;
@@ -53,12 +53,17 @@ $smooth: all 0.3s ease-in-out;
         @media (max-width: 480px) {
             .content {
                 width: 350px;
-                top: 13.2%;
+                top: 14%;
                 form {
                     .input-dialog {
                         grid-template-columns: 20% 80%;
                     }
                 }
+            }
+        }
+        @media (max-height: 625px) {
+            .content {
+                top: 18%
             }
         }
     }
