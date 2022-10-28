@@ -63,6 +63,7 @@ $smooth: all 0.3s ease-in-out;
         }
         @media (max-height: 625px) {
             .content {
+                height: calc(550px - 60px);
                 top: 18%
             }
         }

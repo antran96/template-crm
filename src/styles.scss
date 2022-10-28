@@ -29,6 +29,16 @@ body, input {
     &:hover, &:disabled {
         background-color: $light-base;
     }
+    svg {
+        width: 0.7em;
+        height: 1em;
+        padding: 0 10px 0px 0px;
+    }
+    i {
+        width: 0.7em;
+        height: 1em;
+        padding: 0 3px;
+    }
 }
 .valid {
     background-color: $white !important;
@@ -105,6 +115,15 @@ body, input {
         color: $light-gray;
         text-transform: uppercase;
         transition: 0.5s;
+    }
+}
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+        font-weight: 600;
+        color: $dark-base;
     }
 }
 

@@ -1,14 +1,14 @@
 <div class="user-container">
     <div class="user-dialog">
         <app-dialog-user [show]="showDialog" (close)="onClose()"></app-dialog-user>
-        <!-- <app-dialog [show]="showDialog" (close)="onClose()"></app-dialog> -->
     </div>
     <div class="user-main">
-        <div class="user-btn" (click)="addUsers()">
-            <button class="btn"><i class="fa-solid fa-plus"></i>Add users</button>
+        <div class="cardHeader">
+            <h2>List Recent User</h2>
+            <button class="btn" (click)="addUsers()"><i class="fa-solid fa-plus"></i>Add users</button>
         </div>
-        <div class="user-list">
-            <app-table></app-table>
+        <div class="table">
+            <app-table [headers]="headers" [listData]="listData"></app-table>
         </div>
     </div>
 </div>

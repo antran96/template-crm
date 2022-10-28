@@ -21,6 +21,7 @@ $smooth: all 0.3s ease-in-out;
         background-color: $gray;
         border-radius: 15px;
         top: 2%;
+        transition: $smooth;
         .top-container {
             position: relative;
             background-color: $dark-base;
@@ -85,6 +86,14 @@ $smooth: all 0.3s ease-in-out;
         &-container {
             top: 5%;
             width: 350px;
+        }
+    }
+}
+
+@media (max-height: 625px) {
+    .dialog {
+        &-container {
+            height: 550px;
         }
     }
 }

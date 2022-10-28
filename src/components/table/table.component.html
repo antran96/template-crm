@@ -1,89 +1,20 @@
 <div class="table">
     <table>
+        <!-- headers -->
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Status</td>
-                <td>F1 Status</td>
-                <td>F1 Stage</td>
-                <td>Branch</td>
-                <td>App Count</td>
+                <td *ngFor="let header of headers">{{header.title}}</td>
             </tr>
         </thead>
+        <!-- list -->
         <tbody>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status processing">Processing</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status new">New</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status processing">Processing</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status processing">Processing</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status reversing">Reversing</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status cancel">Cancel</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status processing">Processing</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status processing">Processing</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>VŨ THỊ BÍCH</td>
-                <td><span class="status cancel">Cancel</span></td>
-                <td>PRE_APPROVAL</td>
-                <td>LOGIN_ACCEPTANCE</td>
-                <td>HCM DSA</td>
-                <td>9</td>
+            <tr *ngFor="let item of listData">
+                <td *ngFor="let header of headers">
+                    <span *ngIf="header.type === 'text'">{{item[header.key]}}</span>
+                    <span *ngIf="header.type === 'status'" class="status stt{{item[header.key]}}">{{item[header.key]}}</span>
+                    <span *ngIf="header.type === 'highlight'" class="status" [style.background-color]="generateRandomColor()">{{item[header.key]}}</span>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
-

@@ -46,16 +46,16 @@ $sttReversing: #f493b8;
                 border-radius: 4px;
                 font-size: 14px;
                 font-weight: 500;
-                &.processing {
+                &.sttProcessing {
                     background-color: $sttProcessing;
                 }
-                &.new {
+                &.sttNew {
                     background-color: $sttNew;
                 }
-                &.reversing {
+                &.sttReversing {
                     background-color: $sttReversing;
                 }
-                &.cancel {
+                &.sttCancel {
                     background-color: $light-base;
                 }
             }

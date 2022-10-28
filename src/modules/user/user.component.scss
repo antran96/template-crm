@@ -14,27 +14,10 @@ $smooth: all 1.3s ease-in-out;
         position: relative;
         padding: 20px;
     }
-    &-btn {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        svg {
-            width: 0.7em;
-            height: 1em;
-            padding: 0 10px 0px 0px;
-        }
-        i {
-            width: 0.7em;
-            height: 1em;
-            padding: 0 3px;
-        }
-    }
     &-dialog {
         position: absolute;
         width: calc(100% - 20px - 20px);
         height: calc(100% - 20px - 20px);
-        // z-index: 1;
         background-color: transparent;
     }
     &-main {
@@ -46,7 +29,6 @@ $smooth: all 1.3s ease-in-out;
         box-shadow: 0 7px 25px rgba($color: $black, $alpha: 0.08);
         border-radius: 20px;
         overflow-x: auto;
-        // z-index: 0;
     }
     &-list {
         margin-top: 20px;
