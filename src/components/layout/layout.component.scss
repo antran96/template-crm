@@ -7,13 +7,14 @@ $silver:#f0f0f0;
 $light-gray: #acacac;
 $smooth: all 1.3s ease-in-out;
 .layout-container {
-    position: relative;
+    position: fixed;
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: $dark-base;
     .side-bar {
        position: fixed;
-       width: 300px;
+       width: 250px;
        height: 100%;
        background-color: $dark-base;
        border-left: 10px solid $dark-base;
@@ -25,9 +26,11 @@ $smooth: all 1.3s ease-in-out;
     }
     .main {
         position: absolute;
-        width: calc(100% - 300px);
-        left: 300px;
-        height: 100vh;
+        margin: 10px 0;
+        width: calc(100% - 250px - 10px);
+        left: 250px;
+        height: calc(100% - 20px);
+        border-radius: 15px;
         background-color: $white;
         transition: 0.5s;
         overflow-y: hidden;
@@ -36,7 +39,7 @@ $smooth: all 1.3s ease-in-out;
             height: 60px;
         }
         &.active {
-            width: calc(100% - 80px);
+            width: calc(100% - 80px - 10px);
             left: 80px;
         }
         .content {
@@ -48,17 +51,20 @@ $smooth: all 1.3s ease-in-out;
 
     @media (max-width: 991px) {
         .side-bar {
-            left: -300px;
+            left: -250px;
             &.active {
-                width: 300px;
+                width: 250px;
                 left: 0;
             }
         }
         .main {
             width: 100%;
+            height: 100%;
+            margin: 0;
             left: 0;
+            border-radius: 0;
             &.active {
-                left: 300px;
+                left: 250px;
             }
         }
     }

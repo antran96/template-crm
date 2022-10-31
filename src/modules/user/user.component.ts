@@ -11,7 +11,7 @@ export class UserComponent implements OnInit {
     { key: 'userName', title: 'User Name', show: true, type: 'text' },
     { key: 'fullName', title: 'Full Name', show: true, type: 'text' },
     { key: 'email', title: 'Email', show: true, type: 'text' },
-    { key: 'role', title: 'Role', show: true, type: 'highlight' },
+    { key: 'role', title: 'Role', show: true, type: 'text' },
     { key: 'branch', title: 'Branch', show: true, type: 'text' }
   ]
   listData: Array<any> = [

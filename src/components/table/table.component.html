@@ -12,7 +12,7 @@
                 <td *ngFor="let header of headers">
                     <span *ngIf="header.type === 'text'">{{item[header.key]}}</span>
                     <span *ngIf="header.type === 'status'" class="status stt{{item[header.key]}}">{{item[header.key]}}</span>
-                    <span *ngIf="header.type === 'highlight'" class="status" [style.background-color]="generateRandomColor()">{{item[header.key]}}</span>
+                    <!-- <span *ngIf="header.type === 'highlight'" class="status" [style.background-color]="generateRandomColor()">{{item[header.key]}}</span> -->
                 </td>
             </tr>
         </tbody>

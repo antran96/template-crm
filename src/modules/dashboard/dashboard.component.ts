@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   headers: Array<any> = [
-    { key: 'userName', title: 'Họ và tên', show: true, type: 'text' },
+    { key: 'userName', title: 'User Name', show: true, type: 'text' },
     { key: 'status', title: 'Status', show: true, type: 'status' },
     { key: 'f1Status', title: 'F1 Status', show: true, type: 'text' },
     { key: 'f1Stage', title: 'F1 Stage', show: true, type: 'text' },
-    { key: 'codeTypeRegion', title: 'Mã khu vực', show: true, type: 'text' },
+    { key: 'codeTypeRegion', title: 'Branch', show: true, type: 'text' },
     { key: 'appCount', title: 'App Count', show: true, type: 'text' }
   ]
   listData: Array<any> = [
