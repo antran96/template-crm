@@ -8,7 +8,11 @@
             <button class="btn" (click)="addUsers()"><i class="fa-solid fa-plus"></i>Add user</button>
         </div>
         <div class="table">
-            <app-table [headers]="headers" [listData]="listData"></app-table>
+            <app-table 
+                [headers]="headers" 
+                [listData]="listData" 
+                [search]="true">
+            </app-table>
         </div>
     </div>
 </div>

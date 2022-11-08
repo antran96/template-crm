@@ -3,36 +3,43 @@ $dark-base: #6C63FF;
 $white: #fff;
 $light-black: #333;
 $gray: #444;
-$silver:#f0f0f0;
+$silver: #f0f0f0;
 $light-gray: #acacac;
 $sttNew: #ffc296;
 $sttProcessing: #bbe888;
 $sttReversing: #f493b8;
+$boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+
 .table {
     table {
         width: 100%;
         border-collapse: collapse;
+
         thead {
             font-weight: 600;
+
+            tr {
+                td {
+                    font-size: 14px;
+                }
+            }
         }
+
         tr {
             color: $light-black;
             border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+
             &:last-child {
                 border-bottom: none;
             }
+
             td {
                 padding: 15px;
                 text-align: center;
                 font-size: 12px;
-                &:last-child {
-                    text-align: end;
-                }
-                &:nth-child(1) {
-                    text-align: start;
-                }
             }
         }
+
         tbody {
             tr {
                 &:hover {
@@ -40,26 +47,79 @@ $sttReversing: #f493b8;
                     color: $white;
                 }
             }
+
             .status {
                 padding: 2px 4px;
                 color: $white;
                 border-radius: 4px;
                 font-size: 14px;
                 font-weight: 500;
+
                 &.sttProcessing {
                     background-color: $sttProcessing;
                 }
+
                 &.sttNew {
                     background-color: $sttNew;
                 }
+
                 &.sttReversing {
                     background-color: $sttReversing;
                 }
+
                 &.sttCancel {
                     background-color: $light-base;
                 }
             }
         }
+    }
+
+    &-sort {
+        padding: 0 5px;
+
+        svg,
+        i {
+            color: $dark-base;
+        }
+    }
+
+    &-search {
+        position: relative;
+        width: 80%;
+        height: 35px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+        margin-top: 10px;
+        .search-box {
+            height: 100%;
+            width: 100%;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                width: 85%;
+                height: 100%;
+                border: 0;
+                padding-left: 10px;
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+            svg, i {
+                color: $dark-base;
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .nodata {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $light-gray;
     }
 }
 

@@ -26,6 +26,12 @@ export class DashboardComponent implements OnInit {
     { userName: 'Test ABC', status: 'Cancel', f1Status: 'PRE_APPROVAL', f1Stage: 'LOGIN_ACCEPTANT', codeTypeRegion: 'HCM_DSA', appCount: 9 },
     { userName: 'Test ABC', status: 'Reversing', f1Status: 'PRE_APPROVAL', f1Stage: 'LOGIN_ACCEPTANT', codeTypeRegion: 'HCM_DSA', appCount: 9 },
   ]
+  dataChart: Array<any> = [
+    { status: 'New', count: '10' },
+    { status: 'Processing', count: '20' },
+    { status: 'Reversing', count: '15' },
+    { status: 'Cancel', count: '5' },
+  ]
   constructor() { }
 
   ngOnInit(): void {

@@ -3,12 +3,22 @@
         <!-- headers -->
         <thead>
             <tr>
-                <td *ngFor="let header of headers">{{header.title}}</td>
+                <td *ngFor="let header of headers, index as index">{{header.title}}
+                    <!-- sort -->
+                    <span class="table-sort"><i class="fa-solid fa-sort"></i></span>
+                    <!-- search -->
+                    <div *ngIf="search" class="table-search">
+                        <div class="search-box">
+                            <input type="text" [(ngModel)]="searchInput[index].value" (ngModelChange)="onSearch($event, header.key)" >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </td>
             </tr>
         </thead>
         <!-- list -->
         <tbody>
-            <tr *ngFor="let item of listData">
+            <tr *ngFor="let item of listShow">
                 <td *ngFor="let header of headers">
                     <span *ngIf="header.type === 'text'">{{item[header.key]}}</span>
                     <span *ngIf="header.type === 'status'" class="status stt{{item[header.key]}}">{{item[header.key]}}</span>
@@ -16,5 +26,9 @@
                 </td>
             </tr>
         </tbody>
+        <!-- pagination -->
     </table>
+    <div *ngIf="listShow.length === 0" class="nodata">
+        <span>No data available</span>
+    </div>
 </div>

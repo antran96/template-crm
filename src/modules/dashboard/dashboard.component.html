@@ -3,6 +3,15 @@
     <div class="dashboard-card">
         <app-card></app-card>
     </div>
+    <!-- charts -->
+    <div class="dashboard-charts">
+        <!-- <div class="pie-chart">
+            <app-pie-chart></app-pie-chart>
+        </div> -->
+        <!-- <div class="bar-chart">
+            <app-bar-chart [dataChart]="dataChart"></app-bar-chart>
+        </div> -->
+    </div>
     <!-- detail list -->
     <div class="dashboard-detail">
         <!-- table -->
@@ -12,7 +21,8 @@
                 <button class="btn">View All</button>
             </div>
             <div class="table">
-                <app-table [headers]="headers" [listData]="listData"></app-table>
+                <app-table [headers]="headers" [listData]="listData" [search]="false">
+                </app-table>
             </div>
         </div>
         <!-- recentUsers -->
@@ -24,4 +34,3 @@
         </div>
     </div>
 </div>
-

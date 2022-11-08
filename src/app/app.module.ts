@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { EchartsxModule } from 'echarts-for-angular';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../modules/login/login.component';
@@ -19,6 +21,7 @@ import { TableComponent } from '../components/table/table.component';
 import { DialogComponent } from '../components/dialog/dialog.component';
 import { RecentUsersComponent } from '../modules/dashboard/recent-users/recent-users.component';
 import { DialogUserComponent } from '../modules/user/dialog-user/dialog-user.component';
+import { BarChartComponent } from '../modules/dashboard/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { DialogUserComponent } from '../modules/user/dialog-user/dialog-user.com
     TableComponent,
     DialogComponent,
     RecentUsersComponent,
-    DialogUserComponent
+    DialogUserComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,8 @@ import { DialogUserComponent } from '../modules/user/dialog-user/dialog-user.com
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+
+    EchartsxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

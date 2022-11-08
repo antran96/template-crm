@@ -6,19 +6,73 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+  public searchInput: Array<any> = []
+  public listShow: Array<any> = []
   @Input() headers: Array<any> = []
   @Input() listData: Array<any> = []
+  @Input() search: boolean = false
+  @Input() filterSearch: boolean = false
 
   constructor() { }
 
   ngOnInit(): void {
+    this.searchInputArray()
+    this.listShow = this.listData
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.generateRandomColor()
-    }, 0)
+  searchInputArray(): void {
+    if (this.headers) {
+      this.headers.forEach(item => {
+        this.searchInput.push({
+          col: item.key,
+          value: ''
+        })
+      })
+    }
   }
+
+  onFilter(index: number): void {
+    const dropdown = document.querySelector('dropdown ul')
+    dropdown?.classList.toggle('active')
+  }
+
+  onSearch(valueSearch: any, key: string): void {
+    if (valueSearch !== '') {
+      let valueSearchnonVN = this.nonAccentVietnamese(valueSearch)
+      let arr = valueSearchnonVN.split(';')
+      let result: boolean = false
+      let newList: Array<any> = []
+      if (this.listData.length > 0) {
+        this.listData.forEach(row => {
+          let value = row[key].toString().toLowerCase()
+          let valuenonVN = this.nonAccentVietnamese(value)
+          arr.forEach((item: any) => {
+            if (item !== '') {
+              result = valuenonVN.includes(item.toLowerCase())
+              if (result === true) newList.push(row)
+            }
+          })
+        })
+        this.listShow = newList
+      }
+    } else this.listShow = this.listData
+  }
+
+  nonAccentVietnamese(value: string) {
+    value = value.toString();
+    value = value.toLowerCase();
+    value = value.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    value = value.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    value = value.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    value = value.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    value = value.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    value = value.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    value = value.replace(/đ/g, "d");
+    // Some system encode vietnamese combining accent as individual utf-8 characters
+    value = value.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // Huyền sắc hỏi ngã nặng 
+    value = value.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
+    return value;
+}
 
   generateRandomColor() {
     const arrColor = ['#ffc296', '#bbe888', '#f493b8', '#9e9bea']
