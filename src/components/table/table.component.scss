@@ -16,16 +16,22 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
         border-collapse: collapse;
 
         thead {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
             font-weight: 600;
 
             tr {
-                td {
+                th {
                     font-size: 14px;
                 }
             }
         }
 
         tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
             color: $light-black;
             border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
 
@@ -37,10 +43,17 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
                 padding: 15px;
                 text-align: center;
                 font-size: 12px;
+                word-break: break-all;
             }
         }
 
         tbody {
+            display: block;
+            width: 100%;
+            max-height: calc(100vh - 355px);
+            overflow: auto;
+            margin-top: 15px;
+
             tr {
                 &:hover {
                     background-color: $dark-base;
@@ -91,6 +104,7 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
         border-radius: 10px;
         box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
         margin-top: 10px;
+
         .search-box {
             height: 100%;
             width: 100%;
@@ -98,16 +112,20 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             input {
                 width: 85%;
                 height: 100%;
                 border: 0;
                 padding-left: 10px;
+
                 &:focus-visible {
                     outline: none;
                 }
             }
-            svg, i {
+
+            svg,
+            i {
                 color: $dark-base;
                 padding: 5px;
                 cursor: pointer;
@@ -121,6 +139,60 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
         align-items: center;
         color: $light-gray;
     }
+
+    &-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+            position: relative;
+            display: flex;
+            // background-color: $white;
+            padding: 10px;
+
+            // border-radius: 50px;
+            // box-shadow: $boxShadow;
+            li {
+                list-style: none;
+                line-height: 35px;
+                margin: 0 15px;
+                background: white;
+                border-radius: 50px;
+                box-shadow: $boxShadow;
+
+                &.pageNumber {
+                    width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                    text-align: center;
+
+                    &:hover {
+                        a {
+                            background-color: $dark-base;
+                            color: $white;
+                        }
+                    }
+                }
+
+                &:first-child,
+                &:last-child {
+                    width: 70px;
+                    height: 35px;
+                    text-align: center;
+                    border-radius: 25px;
+                }
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    font-weight: 600;
+                    color: $dark-base;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -133,6 +205,18 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
                     }
                 }
             }
+        }
+
+        &-sort {
+            display: none;
+        }
+
+        &-search {
+            display: none;
+        }
+
+        &-pagination {
+            display: none;
         }
     }
 

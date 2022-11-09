@@ -3,7 +3,7 @@
         <!-- headers -->
         <thead>
             <tr>
-                <td *ngFor="let header of headers, index as index">{{header.title}}
+                <th *ngFor="let header of headers, index as index">{{header.title}}
                     <!-- sort -->
                     <span class="table-sort"><i class="fa-solid fa-sort"></i></span>
                     <!-- search -->
@@ -13,7 +13,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                     </div>
-                </td>
+                </th>
             </tr>
         </thead>
         <!-- list -->
@@ -26,9 +26,20 @@
                 </td>
             </tr>
         </tbody>
-        <!-- pagination -->
     </table>
     <div *ngIf="listShow.length === 0" class="nodata">
         <span>No data available</span>
+    </div>
+    <!-- pagination -->
+    <div class="table-pagination">
+        <ul>
+            <li><a href="" class="prev">< PREV</a></li>
+            <li class="pageNumber active"><a href="">1</a></li>
+            <li class="pageNumber"><a href="">2</a></li>
+            <li class="pageNumber"><a href="">3</a></li>
+            <li class="pageNumber"><a href="">...</a></li>
+            <li class="pageNumber"><a href="">10</a></li>
+            <li><a href="" class="next">NEXT ></a></li>
+        </ul>
     </div>
 </div>

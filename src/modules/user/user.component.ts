@@ -25,6 +25,16 @@ export class UserComponent implements OnInit {
     {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-IT Admin', 'branch': 'HCM DSA'},
     {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Supervisor', 'branch': 'HCM DSA'},
     {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Admin', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Supervisor', 'branch': 'HCM DSA'},
+    {'userName': 'Vũ Thị Bích', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Area Sales Manager', 'branch': 'HCM DSA'},
+    {'userName': 'def', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Admin', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Supervisor', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Admin', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-IT Admin', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Admin', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-IT Admin', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Supervisor', 'branch': 'HCM DSA'},
+    {'userName': 'testabc', 'fullName': 'Test ABC', 'email': 'testabc@gmail.com', 'role': 'FS-Sales Admin', 'branch': 'HCM DSA'},
   ]
 
   constructor() { }
