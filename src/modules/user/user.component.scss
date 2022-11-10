@@ -31,6 +31,9 @@ $smooth: all 1.3s ease-in-out;
         box-shadow: 0 7px 25px rgba($color: $black, $alpha: 0.08);
         border-radius: 20px;
         // overflow-x: auto;
+        .table {
+            margin-top: 15px;
+        }
     }
     &-list {
         margin-top: 20px;
