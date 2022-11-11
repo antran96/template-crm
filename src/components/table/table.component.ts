@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TableComponent implements OnInit {
   public searchInput: Array<any> = []
   public listShow: Array<any> = []
+  public pagesNumber: number = 1
+  public currentPage: number = 1
   @Input() headers: Array<any> = []
   @Input() listData: Array<any> = []
   @Input() search: boolean = false
@@ -16,11 +18,11 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.searchInputArray()
-    this.listShow = this.listData
+    this.onSearchInit()
+    this.onPagination(1)
   }
 
-  searchInputArray(): void {
+  onSearchInit(): void {
     if (this.headers) {
       this.headers.forEach(item => {
         this.searchInput.push({
@@ -29,11 +31,6 @@ export class TableComponent implements OnInit {
         })
       })
     }
-  }
-
-  onFilter(index: number): void {
-    const dropdown = document.querySelector('dropdown ul')
-    dropdown?.classList.toggle('active')
   }
 
   onSearch(valueSearch: any, key: string): void {
@@ -73,6 +70,34 @@ export class TableComponent implements OnInit {
     value = value.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
     return value;
 }
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  onTrimPagination(querySet: any, page: number, rows: number) {
+    let start = (page - 1) * rows
+    let end = start + rows
+    let trimedData = querySet.slice(start, end)
+    let pages = Math.ceil(querySet.length / rows)
+    return {
+      'querySet': trimedData,
+      'pages': pages
+    }
+  }
+
+  onPagination(page: number) {
+      let state = {
+        'querySet': this.listData,
+        'page': page,
+        'rows': 5
+      }
+      this.currentPage = state.page
+      let data = this.onTrimPagination(state.querySet, state.page, state.rows)
+      
+      this.pagesNumber = data.pages
+      this.listShow = data.querySet
+  }
 
   generateRandomColor() {
     const arrColor = ['#ffc296', '#bbe888', '#f493b8', '#9e9bea']

@@ -9,6 +9,7 @@ $sttNew: #ffc296;
 $sttProcessing: #bbe888;
 $sttReversing: #f493b8;
 $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+$smooth: all .3s ease-in-out;
 
 .table {
     table {
@@ -156,16 +157,17 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
             // box-shadow: $boxShadow;
             li {
                 list-style: none;
-                line-height: 35px;
+                line-height: 25px;
                 margin: 0 15px;
                 background: white;
                 border-radius: 50px;
                 box-shadow: $boxShadow;
+                cursor: pointer;
 
                 &.pageNumber {
-                    width: 35px;
-                    height: 35px;
-                    line-height: 35px;
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
                     text-align: center;
 
                     &:hover {
@@ -175,18 +177,56 @@ $boxShadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
                         }
                     }
                 }
+                &.active {
+                    a {
+                        background-color: $dark-base;
+                        color: $white;
+                    }
+                }
 
                 &:first-child,
                 &:last-child {
                     width: 70px;
-                    height: 35px;
+                    height: 25px;
                     text-align: center;
                     border-radius: 25px;
+                    transition: $smooth;
+                    &.disabled {
+                        background-color: $silver;
+                        pointer-events: none !important;
+                        a {
+                            color: $light-base;
+                        }
+                        &:hover {
+                            transform: none !important;
+                            background-color: $silver !important;
+                            a {
+                                color: $light-base !important;
+                            }
+                        }
+                    }
+                    &:hover {
+                        background-color: $dark-base;
+                        a {
+                            color: $white;
+                        }
+                    }
+                }
+                &:first-child {
+                    &:hover {
+                        transform: translateX(-5px);
+                    }
+                }
+                &:last-child {
+                    &:hover {
+                        transform: translateX(5px);
+                    }
                 }
 
                 a {
                     display: block;
                     text-decoration: none;
+                    font-size: 12px;
                     font-weight: 600;
                     color: $dark-base;
                     border-radius: 50%;

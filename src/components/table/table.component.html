@@ -33,13 +33,12 @@
     <!-- pagination -->
     <div class="table-pagination">
         <ul>
-            <li><a href="" class="prev">< PREV</a></li>
-            <li class="pageNumber active"><a href="">1</a></li>
-            <li class="pageNumber"><a href="">2</a></li>
-            <li class="pageNumber"><a href="">3</a></li>
-            <li class="pageNumber"><a href="">...</a></li>
-            <li class="pageNumber"><a href="">10</a></li>
-            <li><a href="" class="next">NEXT ></a></li>
+            <li [ngClass]="currentPage === 1 ? 'disabled' : ''" (click)="onPagination(currentPage - 1)"><a>< PREV</a></li>
+            <li *ngFor="let in of counter(pagesNumber), index as index" 
+                [ngClass]="index + 1 === currentPage ? 'pageNumber active' : 'pageNumber'"
+                (click)="onPagination(index + 1)">
+                <a>{{index + 1}}</a></li>
+            <li [ngClass]="currentPage ===  pagesNumber ? 'disabled' : ''" (click)="onPagination(currentPage + 1)"><a>NEXT ></a></li>
         </ul>
     </div>
 </div>

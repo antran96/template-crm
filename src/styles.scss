@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-$light-base: #aca9ff8a;
+$light-base: #6b63ffc2;
 $dark-base: #6C63FF;
 $white: #fff;
 $light-black: #333;
 $gray: #444;
 $silver:#f0f0f0;
 $light-gray: #acacac;
-$smooth: all 1.3s ease-in-out;
+$smooth: all .3s ease-in-out;
 body, input {
     margin: 0;
     padding: 0;
@@ -26,8 +26,13 @@ body, input {
     border-radius: 6px;
     cursor: pointer;
     transition: $smooth;
-    &:hover, &:disabled {
+    &:hover {
+        font-size: 14px;
+    }
+    &:disabled {
         background-color: $light-base;
+        cursor: not-allowed;
+        transform: none;
     }
     svg {
         width: 0.7em;
