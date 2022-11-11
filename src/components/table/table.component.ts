@@ -7,7 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   public searchInput: Array<any> = []
+  public isSearch: boolean = false
   public listShow: Array<any> = []
+  public listSearch: Array<any> = []
   public pagesNumber: number = 1
   public currentPage: number = 1
   @Input() headers: Array<any> = []
@@ -19,7 +21,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.onSearchInit()
-    this.onPagination(1)
+    this.onPagination(1, this.listData)
   }
 
   onSearchInit(): void {
@@ -35,10 +37,11 @@ export class TableComponent implements OnInit {
 
   onSearch(valueSearch: any, key: string): void {
     if (valueSearch !== '') {
+      this.isSearch = true
       let valueSearchnonVN = this.nonAccentVietnamese(valueSearch)
       let arr = valueSearchnonVN.split(';')
       let result: boolean = false
-      let newList: Array<any> = []
+      this.listSearch = []
       if (this.listData.length > 0) {
         this.listData.forEach(row => {
           let value = row[key].toString().toLowerCase()
@@ -46,13 +49,18 @@ export class TableComponent implements OnInit {
           arr.forEach((item: any) => {
             if (item !== '') {
               result = valuenonVN.includes(item.toLowerCase())
-              if (result === true) newList.push(row)
+              if (result === true) this.listSearch.push(row)
             }
           })
         })
-        this.listShow = newList
+        this.listShow = this.listSearch
+        this.onPagination(1, this.listShow)
       }
-    } else this.listShow = this.listData
+    } else {
+      this.isSearch = false
+      this.listShow = this.listData
+      this.onPagination(1, this.listShow)
+    }
   }
 
   nonAccentVietnamese(value: string) {
@@ -86,11 +94,11 @@ export class TableComponent implements OnInit {
     }
   }
 
-  onPagination(page: number) {
+  onPagination(page: number, querySet: any) {
       let state = {
-        'querySet': this.listData,
+        'querySet': querySet,
         'page': page,
-        'rows': 5
+        'rows': 2
       }
       this.currentPage = state.page
       let data = this.onTrimPagination(state.querySet, state.page, state.rows)

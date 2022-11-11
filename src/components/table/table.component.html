@@ -33,12 +33,12 @@
     <!-- pagination -->
     <div class="table-pagination">
         <ul>
-            <li [ngClass]="currentPage === 1 ? 'disabled' : ''" (click)="onPagination(currentPage - 1)"><a>< PREV</a></li>
+            <li [ngClass]="currentPage === 1 || listShow.length === 0 ? 'disabled' : ''" (click)="onPagination(currentPage - 1, isSearch ? listSearch : listData)"><a>< PREV</a></li>
             <li *ngFor="let in of counter(pagesNumber), index as index" 
                 [ngClass]="index + 1 === currentPage ? 'pageNumber active' : 'pageNumber'"
-                (click)="onPagination(index + 1)">
+                (click)="onPagination(index + 1, isSearch ? listSearch : listData)">
                 <a>{{index + 1}}</a></li>
-            <li [ngClass]="currentPage ===  pagesNumber ? 'disabled' : ''" (click)="onPagination(currentPage + 1)"><a>NEXT ></a></li>
+            <li [ngClass]="currentPage ===  pagesNumber || listShow.length === 0  ? 'disabled' : ''" (click)="onPagination(currentPage + 1, isSearch ? listSearch : listData)"><a>NEXT ></a></li>
         </ul>
     </div>
 </div>
