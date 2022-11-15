@@ -20,7 +20,7 @@
         <tbody [ngStyle]="{'display': listShow.length === 0 ? 'none' : ''}">
             <tr *ngFor="let item of listShow">
                 <td *ngFor="let header of headers">
-                    <span *ngIf="header.type === 'text'">{{item[header.key]}}</span>
+                    <span *ngIf="!header.type">{{item[header.key]}}</span>
                     <span *ngIf="header.type === 'status'" class="status stt{{item[header.key]}}">{{item[header.key]}}</span>
                 </td>
             </tr>

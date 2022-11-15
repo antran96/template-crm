@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
   public showDialog: boolean = false
   headers: Array<any> = [
-    { key: 'userName', title: 'User Name', show: true, type: 'text' },
-    { key: 'fullName', title: 'Full Name', show: true, type: 'text' },
-    { key: 'email', title: 'Email', show: true, type: 'text' },
-    { key: 'role', title: 'Role', show: true, type: 'text' },
-    { key: 'branch', title: 'Branch', show: true, type: 'text' }
+    { key: 'userName', title: 'User Name', show: true },
+    { key: 'fullName', title: 'Full Name', show: true },
+    { key: 'email', title: 'Email', show: true },
+    { key: 'role', title: 'Role', show: true },
+    { key: 'branch', title: 'Branch', show: true }
   ]
   listData: Array<any> = [
     {'userName': 'testabc1', 'fullName': 'Test ABC', 'email': 'testabc1@gmail.com', 'role': 'FS-Sales Supervisor', 'branch': 'HCM DSA'},
