@@ -5,7 +5,7 @@
             <tr>
                 <th *ngFor="let header of headers, index as index">{{header.title}}
                     <!-- sort -->
-                    <span class="table-sort"><i class="fa-solid fa-sort"></i></span>
+                    <span *ngIf="sort" class="table-sort"><i class="fa-solid fa-sort"></i></span>
                     <!-- search -->
                     <div *ngIf="search" class="table-search">
                         <div class="search-box">
@@ -17,12 +17,11 @@
             </tr>
         </thead>
         <!-- list -->
-        <tbody>
+        <tbody [ngStyle]="{'display': listShow.length === 0 ? 'none' : ''}">
             <tr *ngFor="let item of listShow">
                 <td *ngFor="let header of headers">
                     <span *ngIf="header.type === 'text'">{{item[header.key]}}</span>
                     <span *ngIf="header.type === 'status'" class="status stt{{item[header.key]}}">{{item[header.key]}}</span>
-                    <!-- <span *ngIf="header.type === 'highlight'" class="status" [style.background-color]="generateRandomColor()">{{item[header.key]}}</span> -->
                 </td>
             </tr>
         </tbody>
@@ -34,11 +33,11 @@
     <div class="table-pagination">
         <ul>
             <li [ngClass]="currentPage === 1 || listShow.length === 0 ? 'disabled' : ''" (click)="onPagination(currentPage - 1, isSearch ? listSearch : listData)"><a>< PREV</a></li>
-            <li *ngFor="let in of counter(pagesNumber), index as index" 
-                [ngClass]="index + 1 === currentPage ? 'pageNumber active' : 'pageNumber'"
-                (click)="onPagination(index + 1, isSearch ? listSearch : listData)">
-                <a>{{index + 1}}</a></li>
-            <li [ngClass]="currentPage ===  pagesNumber || listShow.length === 0  ? 'disabled' : ''" (click)="onPagination(currentPage + 1, isSearch ? listSearch : listData)"><a>NEXT ></a></li>
+            <li *ngFor="let item of onGetPageList(totalPages, currentPage, paginationSize)" 
+                [ngClass]="item === currentPage ? 'pageNumber active' : 'pageNumber'"
+                (click)="onPagination(item, isSearch ? listSearch : listData)">
+                <a>{{item}}</a></li>
+            <li [ngClass]="currentPage ===  totalPages || listShow.length === 0  ? 'disabled' : ''" (click)="onPagination(currentPage + 1, isSearch ? listSearch : listData)"><a>NEXT ></a></li>
         </ul>
     </div>
 </div>

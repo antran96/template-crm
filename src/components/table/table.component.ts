@@ -10,12 +10,13 @@ export class TableComponent implements OnInit {
   public isSearch: boolean = false
   public listShow: Array<any> = []
   public listSearch: Array<any> = []
-  public pagesNumber: number = 1
+  public totalPages: number = 1
   public currentPage: number = 1
+  public paginationSize: number = 7
   @Input() headers: Array<any> = []
   @Input() listData: Array<any> = []
   @Input() search: boolean = false
-  @Input() filterSearch: boolean = false
+  @Input() sort: boolean = false
 
   constructor() { }
 
@@ -77,10 +78,48 @@ export class TableComponent implements OnInit {
     value = value.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // Huyền sắc hỏi ngã nặng 
     value = value.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
     return value;
-}
+  }
 
-  counter(i: number) {
-    return new Array(i);
+  range(start: number, end: number) {
+    return Array.from(Array(end - start + 1), (_, i) => i + start)
+  }
+
+  replaceZeroWithDots(arr: any) {
+    arr.forEach(() => {
+      let index = arr.indexOf(0);
+
+      if (index !== -1) {
+        arr[index] = '...';
+      }
+    })
+
+    return arr
+  }
+
+  onGetPageList(totalPages: number, page: number, maxLength: number) {
+    let sideWidth = maxLength < 9 ? 1 : 2
+    let leftWidth = (maxLength - sideWidth * 2 - 3) >> 1
+    let rightWidth = (maxLength - sideWidth * 2 - 3) >> 1
+
+    if (totalPages <= maxLength) {
+      return this.range(1, totalPages)
+    }
+
+    if (page <= maxLength - sideWidth - 1 - rightWidth) {
+      let arr = this.range(1, maxLength - sideWidth - 1).concat(0, this.range(totalPages - sideWidth + 1, totalPages))
+      this.replaceZeroWithDots(arr)
+      return arr
+    }
+
+    if (page >= totalPages - sideWidth - rightWidth) {
+      let arr = this.range(1, sideWidth).concat(0, this.range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages))
+      this.replaceZeroWithDots(arr)
+      return arr
+    }
+
+    let arr = this.range(1, sideWidth).concat(0, this.range(page - leftWidth, page + rightWidth), 0, this.range(totalPages - sideWidth + 1, totalPages))
+    this.replaceZeroWithDots(arr)
+    return arr
   }
 
   onTrimPagination(querySet: any, page: number, rows: number) {
@@ -95,16 +134,18 @@ export class TableComponent implements OnInit {
   }
 
   onPagination(page: number, querySet: any) {
+    if (typeof page === 'number') {
       let state = {
         'querySet': querySet,
         'page': page,
-        'rows': 2
+        'rows': 10 /* limitRows per page */
       }
       this.currentPage = state.page
       let data = this.onTrimPagination(state.querySet, state.page, state.rows)
-      
-      this.pagesNumber = data.pages
+  
+      this.totalPages = data.pages
       this.listShow = data.querySet
+    }
   }
 
   generateRandomColor() {

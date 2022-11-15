@@ -51,6 +51,7 @@ $smooth: all .3s ease-in-out;
         tbody {
             display: block;
             width: 100%;
+            height: calc(100vh - 355px);
             max-height: calc(100vh - 355px);
             overflow: auto;
             margin-top: 15px;
