@@ -21,11 +21,13 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: { title: 'Dashboard', icon: 'fas fa-house' }
       },
       {
         path: 'user',
-        component: UserComponent
+        component: UserComponent,
+        data: { title: 'User', icon: 'fas fa-user' }
       }
     ]
   }

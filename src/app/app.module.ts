@@ -22,6 +22,7 @@ import { DialogComponent } from '../components/dialog/dialog.component';
 import { RecentUsersComponent } from '../modules/dashboard/recent-users/recent-users.component';
 import { DialogUserComponent } from '../modules/user/dialog-user/dialog-user.component';
 import { BarChartComponent } from '../modules/dashboard/bar-chart/bar-chart.component';
+import { SideBarItemComponent } from '../components/layout/side-bar/side-bar-item/side-bar-item.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { BarChartComponent } from '../modules/dashboard/bar-chart/bar-chart.comp
     DialogComponent,
     RecentUsersComponent,
     DialogUserComponent,
-    BarChartComponent
+    BarChartComponent,
+    SideBarItemComponent
   ],
   imports: [
     BrowserModule,

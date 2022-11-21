@@ -30,7 +30,7 @@
         <span>No data available</span>
     </div>
     <!-- pagination -->
-    <div class="table-pagination">
+    <div *ngIf="listShow.length !== 0" class="table-pagination">
         <ul>
             <li [ngClass]="currentPage === 1 || listShow.length === 0 ? 'disabled' : ''" (click)="onPagination(currentPage - 1, isSearch ? listSearch : listData)"><a>< PREV</a></li>
             <li *ngFor="let item of onGetPageList(totalPages, currentPage, paginationSize)" 
