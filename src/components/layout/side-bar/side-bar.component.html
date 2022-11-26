@@ -1,20 +1,32 @@
 <div class="sidebar-container">
+    <!-- logo & brand name -->
     <div class="logo-details">
         <i class="fa-solid fa-cloud"></i>
         <span class="logo_name">Brand Name</span>
     </div>
+    <!-- menu -->
     <ul class="nav-links">
+        <!-- non children -->
         <li>
             <a routerLink="/dashboard" routerLinkActive="active">
                 <i class="fa-solid fa-house"></i>
                 <span class="link_name">Dashboard</span>
             </a>
         </li>
+        <!-- having children -->
         <li>
-            <a routerLink="/user" routerLinkActive="active">
-                <i class="fa-solid fa-user"></i>
-                <span class="link_name">User</span>
-            </a>
+            <div class="icon-link">
+                <a routerLink="/user" routerLinkActive="active">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="link_name">User</span>
+                </a>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <!-- sub menu -->
+            <ul class="sub-menu">
+                <li><a routerLink="" routerLinkActive="">User Manager</a></li>
+                <li><a routerLink="" routerLinkActive="">Create User</a></li>
+            </ul>
         </li>
     </ul>
 </div>
