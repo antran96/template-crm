@@ -17,11 +17,11 @@ $smooth: all 1.3s ease-in-out;
        width: 250px;
        height: 100%;
        background-color: $dark-base;
-       border-left: 10px solid $dark-base;
+    //    border-left: 10px solid $dark-base;
        transition: 0.5s;
        overflow: hidden;
        &.active {
-        width: 80px;
+        width: 65px;
        }
     }
     .main {
@@ -39,8 +39,8 @@ $smooth: all 1.3s ease-in-out;
             height: 60px;
         }
         &.active {
-            width: calc(100% - 80px - 10px);
-            left: 80px;
+            width: calc(100% - 65px - 10px);
+            left: 65px;
         }
         .content {
             width: 100%;

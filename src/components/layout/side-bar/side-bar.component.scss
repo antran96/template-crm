@@ -1,11 +1,11 @@
-$light-base: #9e9bea;
+$submenu: #7e79f3;
 $dark-base: #6C63FF;
 $white: #fff;
-$light-black: #333;
+$black: #333;
 $gray: #444;
 $silver:#f0f0f0;
 $light-gray: #acacac;
-$smooth: all 1.3s ease-in-out;
+$smooth: all .3s ;
 .sidebar-container {
     .logo-details {
         height: 60px;
@@ -29,10 +29,50 @@ $smooth: all 1.3s ease-in-out;
     .nav-links {
         height: 100%;
         padding-top: 30px;
+        .non-submenu {
+            &:hover {
+                background-color: $white;
+                padding: 15px 0;
+                border-left: 5px solid #6c63ff;
+                border-top-left-radius: 30px;
+                border-bottom-left-radius: 30px;
+                i, svg {
+                    color: $dark-base;
+                }
+                a {
+                    .link_name {
+                        color: $dark-base;
+                    }
+                }
+                ::before {
+                    content: '';
+                    position: absolute;
+                    height: 50px;
+                    width: 50px;
+                    right: 0;
+                    top: -50px;
+                    border-radius: 50%;
+                    box-shadow: 35px 30px 0 8px $white;
+                    pointer-events: none;
+                }
+                ::after {
+                    content: '';
+                    position: absolute;
+                    height: 50px;
+                    width: 50px;
+                    right: 0;
+                    bottom: -50px;
+                    border-radius: 50%;
+                    box-shadow: 35px -30px 0 8px $white;
+                    pointer-events: none;
+                }
+            }
+        }
         li {
             position: relative;
             list-style: none;
-            padding: 10px 0;
+            padding: 15px 0;
+            // transition: $smooth;
             i, svg {
                 height: 15px;
                 min-width: 65px;
@@ -51,7 +91,7 @@ $smooth: all 1.3s ease-in-out;
                 align-items: center;
                 text-decoration: none;
                 .link_name {
-                    font-size: 14px;
+                    font-size: 15px;
                     font-weight: 400;
                     color: $white;
                 }
@@ -60,9 +100,89 @@ $smooth: all 1.3s ease-in-out;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                // transition: $smooth;
+                padding: 15px 0;
+                &:hover {
+                    background-color: $white;
+                    border-left: 5px solid #6c63ff;
+                    border-top-left-radius: 30px;
+                    border-bottom-left-radius: 30px;
+                    i, svg {
+                        color: $dark-base;
+                    }
+                    a {
+                        .link_name {
+                            color: $dark-base;
+                        }
+                    }
+                    ::before {
+                        content: '';
+                        position: absolute;
+                        height: 50px;
+                        width: 50px;
+                        right: 0;
+                        top: -35px;
+                        border-radius: 50%;
+                        box-shadow: 35px 30px 0 8px $white;
+                        pointer-events: none;
+                    }
+                    ::after {
+                        content: '';
+                        position: absolute;
+                        height: 50px;
+                        width: 50px;
+                        right: 0;
+                        bottom: -35px;
+                        border-radius: 50%;
+                        box-shadow: 35px -30px 0 8px $white;
+                        pointer-events: none;
+                    }
+                }
             }
             .sub-menu {
-                padding: 6px 10px 15px 65px;
+                margin-top: 5px;
+                padding: 0px 0px 0px 65px;
+                background-color: $submenu;
+                // display: none;
+                li {
+                    &:hover {
+                        background-color: $white;
+                        border-top-left-radius: 30px;
+                        border-bottom-left-radius: 30px;
+                        padding-left: 20px;
+                        a {
+                            color: $dark-base;
+                            font-weight: 600;
+                            font-size: 13px;
+                        }
+                        ::before {
+                            content: '';
+                            position: absolute;
+                            height: 50px;
+                            width: 50px;
+                            right: 0;
+                            top: -50px;
+                            border-radius: 50%;
+                            box-shadow: 35px 30px 0 8px $white;
+                            pointer-events: none;
+                        }
+                        ::after {
+                            content: '';
+                            position: absolute;
+                            height: 50px;
+                            width: 50px;
+                            right: 0;
+                            bottom: -50px;
+                            border-radius: 50%;
+                            box-shadow: 35px -30px 0 8px $white;
+                            pointer-events: none;
+                        }
+                    }
+                }
+                a  {
+                    color: $white;
+                    font-size: 12px;
+                }
             }
         }
     }

@@ -7,7 +7,7 @@
     <!-- menu -->
     <ul class="nav-links">
         <!-- non children -->
-        <li>
+        <li class="non-submenu">
             <a routerLink="/dashboard" routerLinkActive="active">
                 <i class="fa-solid fa-house"></i>
                 <span class="link_name">Dashboard</span>
@@ -24,8 +24,24 @@
             </div>
             <!-- sub menu -->
             <ul class="sub-menu">
-                <li><a routerLink="" routerLinkActive="">User Manager</a></li>
-                <li><a routerLink="" routerLinkActive="">Create User</a></li>
+                <li><a routerLink="" routerLinkActive="">Sub Item 1</a></li>
+                <li><a routerLink="" routerLinkActive="">Sub Item 2</a></li>
+                <!-- <li><a routerLink="" routerLinkActive="">Sub Item 3</a></li> -->
+            </ul>
+        </li>
+        <li>
+            <div class="icon-link">
+                <a routerLink="/user" routerLinkActive="active">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="link_name">Setting</span>
+                </a>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <!-- sub menu -->
+            <ul class="sub-menu">
+                <li><a routerLink="" routerLinkActive="">Sub Item 1</a></li>
+                <li><a routerLink="" routerLinkActive="">Sub Item 2</a></li>
+                <li><a routerLink="" routerLinkActive="">Sub Item 3</a></li>
             </ul>
         </li>
     </ul>
